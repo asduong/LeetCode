@@ -11,9 +11,10 @@ var firstMissingPositive = function(nums) {
       continue;
     } else if (sortedNums[0] > 1) {
       return 1;
-    } else if (sortedNums[i + 1] - sortedNums[i] > 1) {
-      return sortedNums[i] + 1;
-    } else if (i === sortedNums.length - 1) {
+    } else if (
+      sortedNums[i + 1] - sortedNums[i] > 1 ||
+      i === sortedNums.length - 1
+    ) {
       return sortedNums[i] + 1;
     }
   }
