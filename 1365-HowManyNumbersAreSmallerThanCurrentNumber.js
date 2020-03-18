@@ -7,7 +7,7 @@ var smallerNumbersThanCurrent = function(nums) {
   let iCounter = 0;
   let counter = 0;
   let arr = [];
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 1; i < nums.length; i++) {
     if (numCounter > nums[i]) {
       counter++;
     }
