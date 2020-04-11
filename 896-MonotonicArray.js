@@ -31,27 +31,26 @@ Output: true
  * @param {number[]} A
  * @return {boolean}
  */
+
 var isMonotonic = function(A) {
-  let arrIncrease = [];
-  let arrDecrease = [];
-  for (let i = 0; i < A.length; i++) {
-    if (A[i] >= A[i + 1]) {
-      arrDecrease.push(A[i]);
+  let incFlag;
+  let decFlag;
+  for (let i = A.length - 1; i > 0; i--) {
+    if (A[i] - A[i - 1] === 0) {
+      continue;
+    }
+    if (A[i] - A[i - 1] > 0) {
+      incFlag = true;
+    } else {
+      decFlag = true;
+    }
+    if (incFlag === true && decFlag === true) {
+      return false;
     }
   }
-  for (let i = 0; i < A.length; i++) {
-    if (A[i] <= A[i + 1]) {
-      arrIncrease.push(A[i]);
-    }
-  }
-  A.pop();
-  if (
-    JSON.stringify(A) === JSON.stringify(arrIncrease) ||
-    JSON.stringify(A) === JSON.stringify(arrDecrease)
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  return true;
 };
 
+console.log(isMonotonic([6, 5, 4, 4]));
+console.log(isMonotonic([1, 3, 2]));
+console.log(isMonotonic([1, 2, 2, 3]));
