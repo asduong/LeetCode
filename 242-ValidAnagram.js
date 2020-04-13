@@ -22,25 +22,18 @@ What if the inputs contain unicode characters? How would you adapt your solution
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-  s = s.split("").sort();
-  t = t.split("").sort();
-  let sObj = {};
-  let tObj = {};
-  for (let i = 0; i < s.length; i++) {
-    if (sObj[s[i]]) {
-      sObj[s[i]] += 1;
-    } else {
-      sObj[s[i]] = 1;
-    }
+  if (s.length !== t.length) {
+    return false;
   }
-  for (let i = 0; i < t.length; i++) {
-    if (tObj[t[i]]) {
-      tObj[t[i]] += 1;
-    } else {
-      tObj[t[i]] = 1;
-    }
-  }
-  if (JSON.stringify(s) === JSON.stringify(t)) {
+  s = s
+    .split("")
+    .sort()
+    .join("");
+  t = t
+    .split("")
+    .sort()
+    .join("");
+  if (t === s) {
     return true;
   } else {
     return false;
