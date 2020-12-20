@@ -10,8 +10,7 @@ const shuffle = (nums, n) => {
     return nums;
   }
   for (let i = 0; i < nums.length / 2; i++) {
-    shuffledArr.push(nums[i]);
-    shuffledArr.push(nums[i + jump]);
+    shuffledArr.push(nums[i], nums[i + jump]);
   }
   return shuffledArr;
 };
